@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 75 75">
+  <g id="logo" transform="translate(-336 -50)">
+    <path id="Path_14" data-name="Path 14" d="M37.5,0A37.5,37.5,0,1,1,0,37.5,37.5,37.5,0,0,1,37.5,0Z" transform="translate(336 50)" fill="#50a0cc"/>
+    <text id="_j_" data-name="{j}" transform="translate(374.476 95.091)" fill="#fff" font-size="25" font-family="Roboto-Medium, Roboto" font-weight="500" letter-spacing="0.2em"><tspan x="-16.517" y="0">{j}</tspan></text>
+  </g>
+</svg>

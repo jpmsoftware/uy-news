@@ -32,6 +32,8 @@ async function getElpais() {
                 </div></a>
                 <hr class="line separator"></hr>`
             });
+            elPais.innerHTML += output;
+            document.querySelectorAll('.pre-load')[0].style.display = 'none';
         })
 }
 
@@ -54,6 +56,8 @@ async function getElObservador() {
                 </div></a>
                 <hr class="line separator"></hr>`
             });
+            elObservador.innerHTML += output;
+            document.querySelectorAll('.pre-load')[1].style.display = 'none';
         })
 }
 
@@ -76,6 +80,9 @@ async function getLaRepublica() {
                 </div></a>
                 <hr class="line separator"></hr>`
             });
+            laRepublica.innerHTML += output;
+            document.querySelectorAll('.pre-load')[2].style.display = 'none';
+            loading.style.display = 'none';
         })
 }
 

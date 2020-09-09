@@ -1,24 +1,9 @@
 const elPais = document.querySelector('#el-pais');
 const elObservador = document.querySelector('#el-observador');
 const laRepublica = document.querySelector('#la-republica');
-
-var methods = {
-    elpais: {
-        local: './elpais.json',
-        url: 'https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=el+pais&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news'
-    },
-    elobservador: {
-        local: './elobservador.json',
-        url: 'https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=el+observador&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news'
-    },
-    larepublica: {
-        local: './larepublica.json',
-        url: 'https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=la+republica&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news'
-    }
-}
+const loading = document.querySelector('.loading');
 
 window.onload = () => {
-    loadTemplate();
     getElpais();
     getElObservador();
     getLaRepublica();
@@ -30,80 +15,87 @@ laRepublica.addEventListener('scroll', (e) => { checkPosition(e) });
 
 async function getElpais() {
     let output = '';
-    fetch(methods.elpais.local)
+    fetch('https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=el+pais&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
         .then((res) => res.json())
         .then((data) => {
             data.news_results.forEach(element => {
-                output += `<div class="item fr">
+                output += `<a href="${element.link}" target="_blank">
+                <div class="item fr">
                     <div class="image-container">
                         <img src="${element.thumbnail}" alt="screenshot" class="screenshot">
                         <p class="time">${element.date}</p>
                     </div>
                     <div class="text-area fc">
                         <p class="titular">${element.title}</p>
-                        <a href="${element.link}" target="_blank"><p class="leer-mas">Leer noticia completa</p></a>
+                        <p class="snippet">${element.snippet}</p>
                     </div>
-                </div>
+                </div></a>
                 <hr class="line separator"></hr>`
             });
-            elPais.innerHTML += output;
+            setTimeout(() => {
+                elPais.innerHTML += output;
+                document.querySelectorAll('.pre-load')[0].style.display = 'none';
+            }, 5000);
         })
 }
 
 async function getElObservador() {
     let output = '';
-    fetch(methods.elobservador.local)
+    fetch('https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=el+observador&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
         .then((res) => res.json())
         .then((data) => {
             data.news_results.forEach(element => {
-                output += `<div class="item fr">
+                output += `<a href="${element.link}" target="_blank">
+                <div class="item fr">
                     <div class="image-container">
                         <img src="${element.thumbnail}" alt="screenshot" class="screenshot">
                         <p class="time">${element.date}</p>
                     </div>
                     <div class="text-area fc">
                         <p class="titular">${element.title}</p>
-                        <a href="${element.link}" target="_blank"><p class="leer-mas">Leer noticia completa</p></a>
+                        <p class="snippet">${element.snippet}</p>
                     </div>
-                </div>
+                </div></a>
                 <hr class="line separator"></hr>`
             });
-            elObservador.innerHTML = output;
+            setTimeout(() => {
+                elObservador.innerHTML += output;
+                document.querySelectorAll('.pre-load')[1].style.display = 'none';
+            }, 5000);
         })
 }
 
 async function getLaRepublica() {
     let output = '';
-    fetch(methods.larepublica.local)
+    fetch('https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=la+republica&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
         .then((res) => res.json())
         .then((data) => {
             data.news_results.forEach(element => {
-                output += `<div class="item fr">
+                output += `<a href="${element.link}" target="_blank">
+                <div class="item fr">
                     <div class="image-container">
                         <img src="${element.thumbnail}" alt="screenshot" class="screenshot">
                         <p class="time">${element.date}</p>
                     </div>
                     <div class="text-area fc">
                         <p class="titular">${element.title}</p>
-                        <a href="${element.link}" target="_blank"><p class="leer-mas">Leer noticia completa</p></a>
+                        <p class="snippet">${element.snippet}</p>
                     </div>
-                </div>
+                </div></a>
                 <hr class="line separator"></hr>`
             });
-            laRepublica.innerHTML = output;
+            setTimeout(() => {
+                laRepublica.innerHTML += output;
+                document.querySelectorAll('.pre-load')[2].style.display = 'none';
+                loading.style.display = 'none';
+            }, 5000);
         })
-}
-
-function loadTemplate() {
-
 }
 
 function checkPosition(e) {
 
     var parent = document.querySelector(`#${e.target.id}`).parentElement;
-    console.log(e.target.id);
     var cardBottom = parent.childNodes[5];
-    console.log(cardBottom);
 
     if (e.target.scrollTop > 750) {
         cardBottom.style.display = 'none';

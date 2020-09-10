@@ -199,23 +199,48 @@ header {
     line-height: 1.2em;
 }
 
-.logo {
-    position: absolute;
-    right: 7%;
-    bottom: 3%;
-}
-
-.logo img {
-    margin: auto 0.5em auto 0;
-    width: 2em;
-}
-
-.logo p {
-    display: block;
-    margin: 1em auto;
-}
-
 @keyframes FadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+@media only screen and (max-width: 960px) {
+    .titulo {
+        font-size: 1.5em;
+    }
+    .subtitulo {
+        font-size: 0.8em;
+    }
+    .container {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    .card {
+        width: 20.6em;
+        height: 30em;
+        margin-bottom: 1.5em;
+    }
+    .pre-load .item:last-child {
+        display: none;
+    }
+    .head {
+        width: 20.6em;
+        height: 3.1em;
+    }
+    .image-container {
+        width: 6.2em;
+        height: 6.2em;
+    }
+    .screenshot {
+        width: 6.2em;
+        height: 6.2em;
+    }
+    .titular {
+        width: 12.3em;
+    }
+    .snippet {
+        display: none;
+    }
 }

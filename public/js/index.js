@@ -15,7 +15,7 @@ laRepublica.addEventListener('scroll', (e) => { checkPosition(e) });
 
 async function getElpais() {
     let output = '';
-    fetch('https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=el+pais&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
+    fetch('https://api.serpwow.com/live/search?api_key=AE9FA1B0710B4C6AAEAF22D2B5D23F7D&q=el+pais&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
         .then((res) => res.json())
         .then((data) => {
             data.news_results.forEach(element => {
@@ -39,7 +39,7 @@ async function getElpais() {
 
 async function getElObservador() {
     let output = '';
-    fetch('https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=el+observador&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
+    fetch('https://api.serpwow.com/live/search?api_key=AE9FA1B0710B4C6AAEAF22D2B5D23F7D&q=el+observador&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
         .then((res) => res.json())
         .then((data) => {
             data.news_results.forEach(element => {
@@ -63,7 +63,7 @@ async function getElObservador() {
 
 async function getLaRepublica() {
     let output = '';
-    fetch('https://api.serpwow.com/live/search?api_key=822DBDEE173F428A8AD0C283561781AB&q=la+republica&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
+    fetch('https://api.serpwow.com/live/search?api_key=AE9FA1B0710B4C6AAEAF22D2B5D23F7D&q=la+republica&google_domain=google.com.uy&location=Uruguay&gl=uy&hl=es&search_type=news')
         .then((res) => res.json())
         .then((data) => {
             data.news_results.forEach(element => {

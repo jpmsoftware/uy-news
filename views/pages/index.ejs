@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./img/logo.png">
+    <title>uy - news | Titulares</title>
+</head>
+
+<body>
+    <header class="fc">
+        <h1 class="titulo">UY - NEWS</h1>
+        <hr class="line">
+        <p class="subtitulo">Actualidad nacional</p>
+    </header>
+    <div class="loading">
+        <p>Cargando...</p>
+    </div>
+    <div class="container fr">
+        <div class="card fc">
+            <img src="./img/logo-elpais.jpg" alt="" class="head">
+            <div class="card-body" id="el-pais">
+                <% elpais.forEach((element) => { %>
+                    <a href=<%=element.link %> target="_blank">
+                        <div class="item fr">
+                            <div class="image-container">
+                                <img src=<%=element.thumbnail %> alt="screenshot" class="screenshot">
+                                <p class="time">
+                                    <%= element.date %>
+                                </p>
+                            </div>
+                            <div class="text-area fc">
+                                <p class="titular">
+                                    <%= element.title %>
+                                </p>
+                                <p class="snippet">
+                                    <%= element.snippet %>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <% }) %>
+                    <%- include('../partials/pre_load.ejs') %>
+            </div>
+            <div class="card-bottom">
+                <img src="./img/arrow-down.svg" alt="" class="arrow-down">
+            </div>
+        </div>
+
+        <div class="card fc">
+            <img src="./img/logo-elobservador.jpg" alt="" class="head">
+            <div class="card-body" id="el-observador">
+                <% elobservador.forEach((element)=> { %>
+                    <a href=<%=element.link %> target="_blank">
+                        <div class="item fr">
+                            <div class="image-container">
+                                <img src=<%=element.thumbnail %> alt="screenshot" class="screenshot">
+                                <p class="time">
+                                    <%= element.date %>
+                                </p>
+                            </div>
+                            <div class="text-area fc">
+                                <p class="titular">
+                                    <%= element.title %>
+                                </p>
+                                <p class="snippet">
+                                    <%= element.snippet %>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <% }) %>
+                    <%- include('../partials/pre_load.ejs') %>
+            </div>
+            <div class="card-bottom">
+                <img src="./img/arrow-down.svg" alt="" class="arrow-down">
+            </div>
+        </div>
+
+        <div class="card fc">
+            <img src="./img/logo-larepublica.jpg" alt="" class="head">
+            <div class="card-body" id="la-republica">
+                <% larepublica.forEach((element)=> { %>
+                    <a href=<%=element.link %> target="_blank">
+                        <div class="item fr">
+                            <div class="image-container">
+                                <img src=<%=element.thumbnail %> alt="screenshot" class="screenshot">
+                                <p class="time">
+                                    <%= element.date %>
+                                </p>
+                            </div>
+                            <div class="text-area fc">
+                                <p class="titular">
+                                    <%= element.title %>
+                                </p>
+                                <p class="snippet">
+                                    <%= element.snippet %>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <% }) %>
+                    <%- include('../partials/pre_load.ejs') %>
+            </div>
+            <div class="card-bottom">
+                <img src="./img/arrow-down.svg" alt="" class="arrow-down">
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.loading').style.display = 'none';
+            document.querySelectorAll('.pre-load').forEach((element) => {
+                element.style.display = 'none';
+            })
+        })
+    </script>
+</body>
+
+</html>

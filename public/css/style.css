@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
 ::selection {
     background: transparent;
 }
@@ -13,6 +12,16 @@
     overflow-x: hidden;
 }
 
+html {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 56, 168, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
 a {
     text-decoration: none;
     color: #000;
@@ -22,37 +31,28 @@ a {
     width: 0;
 }
 
-.fr {
-    display: flex;
-    flex-direction: row;
-}
-
-.fc {
+header {
+    margin: 1em auto;
+    width: 70%;
     display: flex;
     flex-direction: column;
 }
 
-header {
-    margin: 1em auto;
-    width: 70%;
+header > div {
+    margin: 0 auto;
+    display: flex;
 }
 
-.loading {
-    position: absolute;
-    top: 12%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8em;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    font-family: Georgia, 'sans-serif';
-    font-weight: bold;
-    background: rgb(120, 204, 158);
+.burger {
+    margin: auto 1em;
 }
 
-.loading p {
-    text-align: center;
-    display: block;
+.burger div {
+    margin: 0.5em 0;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #fff;
 }
 
 .titulo {
@@ -60,82 +60,84 @@ header {
     font-weight: bold;
     font-size: 2.5em;
     text-align: center;
-}
-.line {
-    width: 60%;
-    margin: 0.2em auto;
-    opacity: .5;
-    outline: none;
-    background: #5d5763;
-}
-
-.separator {
-    margin: 0 auto;
-    width: 100%;
-    background: #a696b6;
-}
-
-.subtitulo {
-    margin: 0.5em 0;
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    opacity: .7;
+    color: #fff;
 }
 
 .container {
     width: 80%;
     position: relative;
     margin: 4em auto 0 auto;
+    display: flex;
 }
 
 .card {
-    margin: 0 auto;
+    margin: auto auto;
     position: relative;
-    border: 1px solid #C9C9C9;
-    height: 38em;
-    box-shadow: 5px 5px 5px 0px rgba(209,209,209,1);
+    width: 32.5em;
+    height: 44.3em;
+    flex-direction: column;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-.card:nth-child(1) .item:hover {
-    background: rgb(230, 235, 255);
+.inactive {
+    transition: all .2s;
+    width: 22.7em;
+    height: 31em;
 }
 
-.card:nth-child(2) .item:hover {
-    background: rgb(212, 238, 227);
+.inactive .item {
+    height: 5.9em;
 }
 
-.card:nth-child(3) .item:hover {
-    background: rgb(252, 212, 175);
+.inactive .content .snippet {
+    display: none;
 }
 
-.card-bottom {
+.inactive .color-layer {
+    display: block;
+}
+
+.active {
+    transition: all .2s;
+}
+
+.color-layer {
+    display: none;
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    background: rgba(255, 255, 255, .7);
     width: 100%;
-    height: 4em;
-    z-index: 2;
+    height: 100%;
+    background: #000;
+    opacity: .7;
+    z-index: 3;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.color-layer:hover {
+    border: 2px solid #fff;
 }
 
 .head {
-    width: 30em;
+    width: 100%;
     height: 6.2em;
-    border: 1px solid #C9C9C9;
+    border-radius: 20px 20px 0 0;
 }
 
 .card-body {
     position: relative;
     padding: 0.2em;
     height: 100%;
+    background: #fff;
+    border-radius: 0 0 20px 20px;
 }
 
-.arrow-down {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 2em;
+.item:hover {
+    background: lightgray;
 }
 
 .item {
@@ -144,6 +146,8 @@ header {
     padding: 0.5em;
     height: 8.5em;
     justify-content: space-between;
+    display: flex;
+    border-radius: 4px;
     animation: FadeIn 1s 1;
 }
 
@@ -153,15 +157,18 @@ header {
 
 .image-container {
     position: relative;
-    width: 7em;
-    height: 7em;
+    flex: 1;
     overflow: hidden;
 }
 
 .screenshot {
-    width: 7em;
-    height: 7em;
-    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
 }
 
 .time {
@@ -179,24 +186,67 @@ header {
     font-size: 0.9em;
 }
 
-.text-area {
+.content {
+    margin-left: 3px;
     position: relative;
     justify-content: space-between;
-    max-width: 20.2em;
+    display: flex;
+    flex-direction: column;
+    flex: 3;
 }
 
 .titular {
     width: 100%;
-    font-family: Roboto, 'sans-serif';
+    font-family: 'Roboto', sans-serif;
     font-size: 1em;
     line-height: 1.3em;
 }
 
 .snippet {
-    font-family: Georgia, 'sans-serif';
+    font-family: 'Georgia', sans-serif;
     font-size: 0.9em;
     opacity: .8;
     line-height: 1.2em;
+}
+
+.separator {
+    margin: 0.2em auto;
+    border: 1px solid lightgray;
+}
+
+.card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(200, 200, 200, .9);
+    width: 100%;
+    height: 4em;
+    z-index: 2;
+    border-radius: 0 0 20px 20px;
+}
+
+.arrow-down {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2em;
+}
+
+.controls {
+    display: none;
+    margin: 0.5em auto 0 auto;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.controls * {
+    padding: 1.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #f1f1f1;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
 }
 
 @keyframes FadeIn {
@@ -215,32 +265,41 @@ header {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 95%;
     }
     .card {
-        width: 20.6em;
+        width: 100%;
         height: 30em;
-        margin-bottom: 1.5em;
+    }
+    .inactive {
+        display: none;
     }
     .pre-load .item:last-child {
         display: none;
     }
     .head {
-        width: 20.6em;
+        width: 100%;
         height: 3.1em;
     }
     .image-container {
         width: 6.2em;
         height: 6.2em;
     }
+    .content {
+        max-height: 6em;
+    }
     .screenshot {
-        width: 6.2em;
-        height: 6.2em;
+        width: 6em;
+        height: 6em;
     }
     .titular {
-        width: 12.3em;
+        font-size: 0.8em;
+        width: 15em;
     }
     .snippet {
-        display: none;
+       font-size: 0.8em;
     }
+    .controls {
+        display: flex;
+    }  
 }

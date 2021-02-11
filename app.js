@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 8080;
-const path = require('path');
+const PORT = process.env.PORT || 5000;
 const SerpWow = require('google-search-results-serpwow');
-const elPais = require('./elpais.json');
 require('dotenv').config();
 
 var serpwow = new SerpWow(process.env.API_KEY);
@@ -24,7 +22,6 @@ app.get('/', async function (req, res) {
         elobservador: data_elObservador,
         larepublica: data_laRepublica
     });
-
 });
 
 app.use((req, res) => {
